@@ -1,0 +1,41 @@
+#https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/?envType=problem-list-v2&envId=binary-search-tree
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedListToBST(self, head: Optional[ListNode]) -> Optional[TreeNode]:
+        if not head:
+            return None
+        
+        # Step 1: Convert the linked list to an array
+        values = []
+        while head:
+            values.append(head.val)
+            head = head.next
+        
+        # Step 2: Recursive function to construct the BST
+        def buildBST(left, right):
+            if left > right:
+                return None
+            
+            mid = (left + right) // 2
+            node = TreeNode(values[mid])
+            
+            # Recursively build left and right subtrees
+            node.left = buildBST(left, mid - 1)
+            node.right = buildBST(mid + 1, right)
+            
+            return node
+        
+        # Construct the BST from the array
+        return buildBST(0, len(values) - 1)
+
