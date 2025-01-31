@@ -1,0 +1,18 @@
+#https://leetcode.com/problems/next-greater-element-i/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        index_map = {num:i for i, num in enumerate(nums2)}
+        result = []
+        
+        for num in nums1:
+            found = False
+            start_ind = index_map[num]
+            for j in range(start_ind + 1, len(nums2)):
+                if nums2[j] > num:
+                    result.append(nums2[j])
+                    found = True
+                    break
+            if not found:
+                result.append(-1)
+        return result
