@@ -1,0 +1,28 @@
+#https://leetcode.com/problems/basic-calculator/submissions/1538786469/?envType=problem-list-v2&envId=string
+
+class Solution:
+    def calculate(self, s: str) -> int:
+        stack = []
+        res, num, sign = 0, 0, 1
+
+        for char in s:
+            if char.isdigit():
+                num = num * 10 + int(char)   # Handle multi-digit numbers
+            
+            elif char in '+-':
+                res += sign * num  # Apply previous number
+                num = 0
+                sign = 1 if char == '+' else -1
+            
+            elif char == '(':
+                stack.append(res)
+                stack.append(sign)
+                res, sign = 0, 1 # Reset for new sub-expression
+
+            elif char == ')':
+                res += sign * num  # Apply last number inside parentheses
+                res *= stack.pop() # Apply sign before '('
+                res += stack.pop()  # Add previous result before '('
+                num = 0 # Reset number
+            
+        return res + (sign * num)  # Include last pending number
