@@ -1,0 +1,20 @@
+#https://leetcode.com/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-03-04
+
+class Solution:
+    def checkPowersOfThree(self, n: int) -> bool:
+        #Finding largest power of 3 ** i <= n
+        i = 0
+        while 3** (i+1) <= n:
+            i += 1
+        
+        #greedy , removing largest powers
+
+        while i >= 0:
+            power = 3 ** i
+            if power <= n:
+                n -= power
+            if power <= n:
+                return False
+            i -= 1
+
+        return n == 0
