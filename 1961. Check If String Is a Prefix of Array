@@ -1,0 +1,11 @@
+#https://leetcode.com/problems/check-if-string-is-a-prefix-of-array/description/?envType=problem-list-v2&envId=string
+
+class Solution:
+    def isPrefixString(self, s: str, words: List[str]) -> bool:
+        res = ""
+        for word in words:
+            res += word
+            if res == s:
+                return True
+        return False
+        
