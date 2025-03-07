@@ -1,0 +1,15 @@
+#https://leetcode.com/problems/count-prefixes-of-a-given-string/description/
+class Solution:
+    def countPrefixes(self, words: List[str], s: str) -> int:
+        cnt = 0
+
+        for string in words:
+            match = True
+            for i in range(len(string)):
+                if i >= len(s) or string[i] != s[i]:
+                    match = False
+                    break
+            if match:
+                cnt += 1
+        return cnt
+        
