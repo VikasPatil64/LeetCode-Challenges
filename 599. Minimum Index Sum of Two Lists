@@ -1,0 +1,17 @@
+#https://leetcode.com/problems/minimum-index-sum-of-two-lists/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
+        cnt = {}
+        for i in range (len(list1)):
+            for j in range(len(list2)):
+                if list1[i] == list2[j]:
+                    indexSum = i + j
+                    cnt [list1[i]] = indexSum
+
+        min_indexSum = min(cnt.values())
+        ans = []
+        for key, val in cnt.items():
+            if val == min_indexSum:
+                ans.append(key)
+        return ans     
