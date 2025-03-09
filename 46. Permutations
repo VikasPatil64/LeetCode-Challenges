@@ -1,0 +1,19 @@
+#https://leetcode.com/problems/permutations/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        perms = []
+        solution = []
+
+        def backtrack():
+            if len(nums) == len(solution):
+                perms.append(solution[:])
+                return
+
+            for num in nums:
+                if not num in solution:
+                    solution.append(num)
+                    backtrack()
+                    solution.pop()
+        backtrack()
+        return perms
