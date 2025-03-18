@@ -1,0 +1,26 @@
+#https://leetcode.com/problems/count-complete-tree-nodes/?envType=problem-list-v2&envId=bit-manipulation
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def depth(self, root): #helper function to calculate depth of tree
+        ht = 0
+        while root:
+            ht += 1
+            root = root.left
+        return ht
+    def countNodes(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
+        ld = self.depth(root.left)
+        rd = self.depth(root.right)
+
+        if ld == rd:
+            return 1 + ((2 ** ld) -1) + self.countNodes(root.right)
+        else:
+            return 1 + ((2 ** rd) -1) + self.countNodes(root.left)
+        
