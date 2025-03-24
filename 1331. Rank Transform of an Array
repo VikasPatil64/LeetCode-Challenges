@@ -1,0 +1,17 @@
+#https://leetcode.com/problems/rank-transform-of-an-array/description/
+
+class Solution:
+    def arrayRankTransform(self, arr: List[int]) -> List[int]:
+        indexed_arr = [(num, i) for i, num in enumerate (arr)]
+
+        indexed_arr.sort(key = lambda x : x[0])
+
+        result = [0] * len(arr)
+        rank = 1
+
+        for i in range(len(indexed_arr)):
+            if i > 0 and indexed_arr[i][0] != indexed_arr[i - 1][0]:
+                rank += 1
+
+            result[indexed_arr[i][1]] = rank
+        return result
