@@ -1,0 +1,14 @@
+#https://leetcode.com/problems/teemo-attacking/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
+        if not timeSeries: #N0 TimeSeries No Attack
+            return 0
+
+        totalTime = 0
+        for i in range(len(timeSeries) - 1):
+            #Check overlapping
+            totalTime += min(duration , timeSeries[i + 1]- timeSeries[i])
+        
+        totalTime += duration
+        return totalTime
