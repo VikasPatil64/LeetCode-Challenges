@@ -1,0 +1,14 @@
+#https://leetcode.com/problems/first-unique-character-in-a-string/
+
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        char_cnt = {}
+        for char in s:
+            if char not in char_cnt:
+                char_cnt[char] = 0
+            char_cnt[char] += 1
+        for i, char in enumerate(s):
+            if char_cnt [char] == 1:
+                return i
+        return -1
+
