@@ -1,0 +1,18 @@
+#https://leetcode.com/problems/distribute-candies/description/
+
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        seen = {}
+        cnt = 0
+
+        for candy in candyType:
+            if candy not in seen:
+                seen[candy] = True
+                cnt += 1
+
+        max_eat = len(candyType) // 2
+
+        if cnt < max_eat:
+            return cnt
+        else:
+            return max_eat
