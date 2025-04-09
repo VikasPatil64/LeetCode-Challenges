@@ -1,0 +1,25 @@
+#https://leetcode.com/problems/valid-palindrome/description/
+
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        newStr = ""
+        for c in s:
+            if ord(c) >= 65 and ord(c) <= 90:
+                new = ord(c) + 32
+                newChr = chr(new)
+                newStr += newChr
+            elif ord(c) >= 97 and ord(c) <= 122:
+                newStr += c
+            elif ord(c) >= 48 and ord(c) <= 57:
+                newStr += c
+            else:
+                pass
+                
+        left, right = 0, len(newStr) - 1
+        while left < right:
+            if newStr[left] != newStr[right]:
+                return False
+            left += 1
+            right -= 1
+        return True
+
