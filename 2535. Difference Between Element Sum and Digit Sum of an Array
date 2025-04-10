@@ -1,0 +1,12 @@
+#https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/description/?envType=problem-list-v2&envId=prshgx6i
+
+class Solution:
+    def differenceOfSum(self, nums: List[int]) -> int:
+        element_sum = sum(nums)
+        digit_sum = 0
+        for num in nums:
+            while num > 0:
+                digit_sum += (num % 10)  # extract last digit
+                num //= 10 # removes last digit
+        return abs(element_sum - digit_sum)
+        
