@@ -2,15 +2,12 @@
 
 class Solution:
     def differenceOfSums(self, n: int, m: int) -> int:
-        notD = []
-        areD = []
+        nums1 = 0
+        nums2 = 0
         for i in range(1, n+1):
             if i % m == 0:
-                areD.append(i)
+                nums2 += i
             else:
-                notD.append(i)
-
-        sumNotD = sum(notD)
-        sumAreD = sum(areD)
-
-        return (sumNotD - sumAreD)
+                nums1 += i
+        return nums1 - nums2
+         
