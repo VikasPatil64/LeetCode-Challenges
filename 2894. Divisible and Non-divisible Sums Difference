@@ -1,0 +1,16 @@
+#https://leetcode.com/problems/divisible-and-non-divisible-sums-difference/description/?envType=problem-list-v2&envId=prshgx6i
+
+class Solution:
+    def differenceOfSums(self, n: int, m: int) -> int:
+        notD = []
+        areD = []
+        for i in range(1, n+1):
+            if i % m == 0:
+                areD.append(i)
+            else:
+                notD.append(i)
+
+        sumNotD = sum(notD)
+        sumAreD = sum(areD)
+
+        return (sumNotD - sumAreD)
