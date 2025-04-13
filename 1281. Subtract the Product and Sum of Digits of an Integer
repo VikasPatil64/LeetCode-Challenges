@@ -1,0 +1,13 @@
+#https://leetcode.com/problems/subtract-the-product-and-sum-of-digits-of-an-integer/?envType=problem-list-v2&envId=prshgx6i
+
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        digitSum = 0
+        digitPro = 1
+        while n > 0:
+            digit = n % 10
+            digitSum += digit
+            digitPro *= digit
+            n //= 10
+        
+        return (digitPro - digitSum)
