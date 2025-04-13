@@ -1,0 +1,10 @@
+# https://leetcode.com/problems/xor-operation-in-an-array/description/?envType=problem-list-v2&envId=prshgx6i
+
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        result = 0
+        for i in range(n):
+            val = start + 2 * i
+            result ^= val
+
+        return result
