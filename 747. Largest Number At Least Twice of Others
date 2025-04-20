@@ -1,0 +1,11 @@
+#https://leetcode.com/problems/largest-number-at-least-twice-of-others/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        max_value = max(nums)
+        index = nums.index(max_value)
+
+        for i in range(len(nums)):
+            if i != index and max_value < 2 * nums[i]:
+                return -1
+        return index
