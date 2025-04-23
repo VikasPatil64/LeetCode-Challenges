@@ -1,0 +1,20 @@
+#https://leetcode.com/problems/count-symmetric-integers/description/?envType=daily-question&envId=2025-04-23
+
+class Solution:
+    def countSymmetricIntegers(self, low: int, high: int) -> int:
+        count = 0
+        for i in range(low, high + 1):
+            s = str(i)
+            length = len(s)
+            if length % 2 == 0:
+                sum1 = sum2 = 0
+                half = length // 2
+                for i in range(half):
+                    sum1 += int(s[i])
+                for i in range(half, length):
+                    sum2 += int(s[i])
+                
+                if sum1 == sum2:
+                    count += 1
+        return count
+                
