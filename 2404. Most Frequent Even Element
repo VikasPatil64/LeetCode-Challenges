@@ -1,0 +1,22 @@
+#https://leetcode.com/problems/most-frequent-even-element/description/
+
+class Solution:
+    def mostFrequentEven(self, nums: List[int]) -> int:
+        even_dict = {}
+        for item in nums:
+            if item % 2 == 0:
+                if item in even_dict:
+                    even_dict[item] += 1
+                else:
+                    even_dict[item] = 1
+        most_cmn_even = None
+        cnt = 0
+
+        for key, val in even_dict.items():
+            if val > cnt :
+                cnt = val
+                most_cmn_even = key
+            elif val == cnt and key < most_cmn_even:
+                most_cmn_even = key
+
+        return most_cmn_even if most_cmn_even is not None else -1
