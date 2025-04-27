@@ -1,0 +1,12 @@
+#https://leetcode.com/problems/student-attendance-record-i/description/?envType=problem-list-v2&envId=2sfwl6ur
+
+class Solution:
+    def checkRecord(self, s: str) -> bool:
+        sL = list(s)
+        cntA = 0
+        for i in range(len(sL)):
+            if sL[i] == "A":
+                cntA += 1
+            elif i >= 2 and s[i-2:i+1] == "LLL":
+                return False
+        return cntA < 2       
