@@ -1,0 +1,13 @@
+#https://leetcode.com/problems/alternating-digit-sum/description/
+
+class Solution:
+    def alternateDigitSum(self, n: int) -> int:
+        sNum = str(n)
+        result = 0
+        sign = 1
+        for digit in sNum:
+            result += sign * int(digit)
+            sign *= -1
+        return result
+
+        
