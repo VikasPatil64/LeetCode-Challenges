@@ -7,8 +7,7 @@ This repository contains my daily solutions to LeetCode problems, as part of my 
 ### 📌 What's Included
 - ✅ Daily solved problems from LeetCode  
 - ✅ Clean and well-commented Python code  
-- ✅ Solutions organized by date or difficulty for easy reference
-
+- ✅ Regular updates with structured and maintainable code
 ---
 
 ### 🎯 Goals
