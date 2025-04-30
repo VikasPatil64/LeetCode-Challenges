@@ -1,0 +1,13 @@
+#https://leetcode.com/problems/count-partitions-with-even-sum-difference/description/
+
+class Solution:
+    def countPartitions(self, nums: List[int]) -> int:
+        total_sum = sum(nums)
+        n = len(nums)
+        partitioncnt = 0
+        for i in range(0, n-1):
+            left = nums[i]
+            right = total_sum - left
+            if abs(left-right) % 2 == 0:
+                partitioncnt += 1
+        return partitioncnt 
