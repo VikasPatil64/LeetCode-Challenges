@@ -1,0 +1,18 @@
+#https://leetcode.com/problems/long-pressed-name/description/?envType=problem-list-v2&envId=two-pointers
+
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        n = t = 0
+
+        while t < len(typed):
+            #matching
+            if n < len(name) and name[n] == typed[t]:
+                n += 1
+                
+            # Not matching or not long pressed
+            elif n == 0 or name[n-1] != typed[t]:
+                return False
+            t += 1
+
+        return n == len(name)
+        
