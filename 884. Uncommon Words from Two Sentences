@@ -1,0 +1,31 @@
+#https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
+
+class Solution:
+    def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+        s1_cnt = {}
+        s2_cnt = {}
+        s11 = s1.split(" ")
+        s22 = s2.split(" ")
+        res = []
+        for word in s11:
+            if word in s1_cnt :
+                s1_cnt [word] += 1
+            else:
+                s1_cnt[word] = 1
+
+        for word in s22:
+            if word in s2_cnt :
+                s2_cnt [word] += 1
+            else:
+                s2_cnt[word] = 1
+
+        
+        for word in s1_cnt:
+            if s1_cnt[word] == 1 and word not in s2_cnt:
+                res.append(word)
+
+        for word in s2_cnt:
+            if s2_cnt[word] == 1 and word not in s1_cnt:
+                res.append(word)
+        return res
+        
