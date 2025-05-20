@@ -1,0 +1,17 @@
+#https://leetcode.com/problems/adding-spaces-to-a-string/description/?envType=problem-list-v2&envId=two-pointers
+
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        res = []
+        space = 0
+        length = len(spaces)
+        for i in range(len(s)):
+            if space < length and i == spaces[space]:
+                res.append(" ")
+                space += 1
+
+            res.append(s[i])
+
+        return "".join(res)
+
+        
