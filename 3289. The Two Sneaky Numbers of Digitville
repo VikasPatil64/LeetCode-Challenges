@@ -1,0 +1,13 @@
+#https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/description/
+
+class Solution:
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        setNums = set()
+        result = []
+
+        for num in nums:
+            if num in setNums:
+                result.append(num)
+            setNums.add(num)
+        return result
+        
