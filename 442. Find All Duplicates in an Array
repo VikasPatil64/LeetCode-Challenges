@@ -1,0 +1,12 @@
+#https://leetcode.com/problems/find-all-duplicates-in-an-array/description/?envType=problem-list-v2&envId=hash-table
+
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        setNums = set()
+        result = []
+        for num in nums:
+            if num in setNums:
+                result.append(num)
+            setNums.add(num)
+        return result
+        
