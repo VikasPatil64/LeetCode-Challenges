@@ -1,9 +1,35 @@
-#https://leetcode.com/problems/reverse-words-in-a-string/?envType=problem-list-v2&envId=string
+https://leetcode.com/problems/reverse-words-in-a-string/?envType=study-plan-v2&envId=top-interview-150
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        words = s.split()
-        reversed_words = words[::-1]
-        result = " ".join(reversed_words)
-        return result
+        # words = s.split()
+        # reversed_words = words[::-1]
+        # result = " ".join(reversed_words)
+        # return result
+
+        words = []
+        word = ""
+        for char in s:
+            if char == " ":
+                if word:
+                    words.append(word)
+                    word = "" #reset the word
+            else:
+                word += char # build a word
+                
+        if word:
+            words.append(word)
+        reversed_string = ""
+        for i in range(len(words) - 1, -1, -1):
+            reversed_string += words[i]
+            if i > 0:
+                reversed_string += " "
+
+        return reversed_string
+
+
+
+                
+
+        
         
