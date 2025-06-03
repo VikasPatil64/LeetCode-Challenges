@@ -1,0 +1,25 @@
+#https://leetcode.com/problems/string-compression/?envType=problem-list-v2&envId=two-pointers
+
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        compressed = ""
+        i = 0
+
+        while i < len(chars) :
+            char = chars[i]
+            cnt = 0
+            # Count occurrences of the current character
+            while i < len(chars) and chars[i] == char:
+                cnt += 1
+                i += 1
+            
+            compressed += char
+
+            if cnt > 1:
+                compressed += str(cnt)
+
+        # Update the original list in-place
+        for i in range(len(compressed)):
+            chars[i] = compressed[i]
+
+        return len(compressed)
