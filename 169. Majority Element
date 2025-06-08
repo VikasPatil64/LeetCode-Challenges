@@ -2,14 +2,18 @@
 
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        majority = None
-        cnt = 0
+        nums_freq = {}
         for num in nums:
-            if cnt == 0:
-                majority = num
-            if num == majority:
-                cnt += 1
+            if num in nums_freq:
+                nums_freq[num] += 1
             else:
-                cnt -= 1
-        return majority
+                nums_freq[num] = 1
+        majority = 0
+        majority_num = None
+        for num , cnt in nums_freq.items():
+            if cnt > majority:
+                majority = cnt
+                majority_num = num
+
+        return majority_num
         
