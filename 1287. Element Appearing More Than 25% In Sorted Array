@@ -1,0 +1,14 @@
+#https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/description/?envType=problem-list-v2&envId=array
+
+class Solution:
+    def findSpecialInteger(self, arr: List[int]) -> int:
+        freq = {}
+        for num in arr:
+            if num in freq:
+                freq[num] += 1
+            else:
+                freq[num] = 1
+        for num, cnt in freq.items():
+            if cnt > len(arr) * 0.25:
+                return num
+            
