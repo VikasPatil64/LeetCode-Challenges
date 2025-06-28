@@ -1,0 +1,16 @@
+#https://leetcode.com/problems/find-subsequence-of-length-k-with-the-largest-sum/description/?envType=daily-question&envId=2025-06-28
+
+class Solution:
+    def maxSubsequence(self, nums: List[int], k: int) -> List[int]:
+        sorted_nums = sorted(nums, reverse = True) #sorting an array with desecending order
+        top_k = sorted_nums[:k]  #top k elements
+        res = []
+        for num in nums:
+            if num in top_k:
+                res.append(num)
+                top_k.remove(num) #to handle duplicates
+
+            if len(res) == k:
+                break
+        return res
+
