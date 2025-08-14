@@ -2,7 +2,7 @@
 
 class Solution:
     def largestGoodInteger(self, num: str) -> str:
-        #2
+        #1
         max_good = ""
         for i in range(len(num) - 2):
             triplet = num[i:i+3]
@@ -10,11 +10,4 @@ class Solution:
                 if triplet > max_good:
                     max_good = triplet
         return max_good
-        #1
-        '''for digit in reversed(range(10)):
-            triplet = str(digit) * 3
-
-            if triplet in num:
-                return triplet
-
-        return ""'''
+        
